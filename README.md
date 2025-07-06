@@ -67,7 +67,7 @@ Todo-FlaskApp/
 
 ## 🙋‍♂️ Author
 Chirag Taluja
-🔗 GitHub Profile
+🔗 [GitHub Profile](https://github.com/chiragtaluja)
 
 ## 📄 License
 This project is licensed under the MIT License – feel free to use it and modify it for your own projects.
