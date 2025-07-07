@@ -5,8 +5,6 @@ __pycache__/
 # Ignore virtual environment
 env/
 
-# Ignore SQLite database (optional)
-site.db
 
 # Ignore environment files
 .env
