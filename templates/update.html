@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    {% extends 'base.html' %}
+    {% block body %}
+    <main class="flex-grow-1">
+        <div class="container my-3">
+            <h2>Update your Todo</h2>
+            <form action="/update/{{todo.sno}}" method="post">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Todo Title</label>
+                    <input type="text" class="form-control" name="title" id="title" value="{{todo.title}}" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                    <label for="desc" class="form-label">Todo Description</label>
+                    <input type="text" class="form-control" name="desc" id="desc"
+                    value="{{todo.desc}}">
+                </div>
+                <button type="submit" class="btn btn-outline-dark">Update</button>
+            </form>
+        </div>
+    </main>
+    {% endblock body %}
+</body>
+
+</html>

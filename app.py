@@ -17,17 +17,16 @@ class Todo(db.Model):
     date_created = db.Column(db.DateTime, default=datetime.utcnow)
 
     def __repr__(self) -> str:
-        return f'{self.sno}-{self.title}'  # fixed 'title' to 'content'
+        return f'{self.sno}-{self.title}'
 
 @app.route('/', methods=['GET','POST'])
-def hello_world():
+def home_page():
     if request.method=="POST":
         title=request.form['title']
         desc=request.form['desc']
         todo=Todo(title=title,desc=desc)
         db.session.add(todo)
         db.session.commit()
-
     allTodo=Todo.query.all()
     return render_template('index.html',allTodo=allTodo)
 
@@ -38,11 +37,16 @@ def delete(sno):
     db.session.commit()
     return redirect("/")
 
-@app.route('/update')
-def update():
-    all_todo=Todo.query.all()
-    print(all_todo)
-    return "This is a product page"
+@app.route('/update/<int:sno>', methods=['GET', 'POST'])
+def update(sno):
+    if request.method=="POST":
+        title=request.form['title']
+        desc=request.form['desc']
+        todo=Todo(title=title,desc=desc)
+        db.session.add(todo)
+        db.session.commit()
+    todo=Todo.query.filter_by(sno=sno).first()
+    return render_template("update.html",todo=todo)
 
 if __name__ == "__main__":
     app.run(debug=True)
