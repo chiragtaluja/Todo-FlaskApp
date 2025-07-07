@@ -52,7 +52,8 @@
                         <th>{{loop.index}}</th>
                         <td>{{todo.title}}</td>
                         <td>{{todo.desc}}</td>
-                        <td>{{todo.date_created}}</td>
+                        <td>{{ todo.date_created.strftime('%I:%M %p') }}</td>
+
                         <td>
                             <a href="/update/{{todo.sno}}" type="button"
                                 class="btn btn-sm mx-1 btn-outline-dark">Update</a>
